@@ -1,0 +1,41 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  --color-background-primary: hsl(212, 100%, 10%);
+  --color-background-secondary: hsl(0, 0%, 15%);
+  --color-background-tertiary: hsl(0, 0%, 20%);
+  --color-foreground-primary: hsl(0, 0%, 95%);
+  --color-foreground-secondary: hsl(0, 0%, 70%);
+  --color-foreground-tertiary: hsl(0, 0%, 50%);
+  --color-accent: hsl(39, 100%, 85%);
+
+  --text-size-primary: 1rem;
+  --text-size-secondary: 0.875rem;
+  --text-size-tertiary: 0.75rem;
+}
+
+@theme inline {
+  --color-color-background-primary: var(--color-background-primary);
+  --color-color-background-secondary: var(--color-background-secondary);
+  --color-color-background-tertiary: var(--color-background-tertiary);
+  --color-color-foreground-primary: var(--color-foreground-primary);
+  --color-color-foreground-secondary: var(--color-foreground-secondary);
+  --color-color-foreground-tertiary: var(--color-foreground-tertiary);
+  --color-color-accent: var(--color-accent);
+
+  --text-size-primary: var(--text-size-primary);
+  --text-size-secondary: var(--text-size-secondary);
+  --text-size-tertiary: var(--text-size-tertiary);
+
+  --font-main: var(--font-main);
+  --font-backup: var(--font-backup);
+  --font-special: var(--font-special);
+}
+
+body {
+  background: var(--color-background-primary);
+  color: var(--color-foreground-primary);
+  font-family: var(--font-main), var(--font-backup), sans-serif;
+  font-weight: 500;
+}
