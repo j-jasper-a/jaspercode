@@ -14,9 +14,9 @@ export const jobs: Job[] = [
     startDate: "2018-01-01T00:00:00+06:00",
     endDate: "2021-02-01T00:00:00+06:00",
     accomplishments: [
-      "Managed the company`s email server and website, ensuring reliable communication and a smooth online presence.",
-      "Monitored and resolved technical issues, maintaining optimal system performance and minimizing downtime.",
-      "Facilitated communication with buyers and suppliers, ensuring smooth coordination for orders and shipments.",
+      "Designed, launched, and administered corporate website, contributing to 35% of total sales",
+      "Investigated and quantified trends to predict success rate, matching expectations 8 out of 10 times",
+      "Coordinated logistics between buyers and suppliers, streamlining order/shipment workflows",
     ],
   },
   {
@@ -32,9 +32,9 @@ export const jobs: Job[] = [
     startDate: "2021-03-01T00:00:00+06:00",
     endDate: "2023-05-01T00:00:00+06:00",
     accomplishments: [
-      "Developed the landing page and dashboard for an international fintech startup, contributing to a successful launch.",
-      "Refactored an international mid-scale ad optimization company's website for mobile responsiveness and enhanced performance.",
-      "Integrated third-party APIs for an international client to improve site functionality and user experience.",
+      "Delivered dashboard for global fintech startup ahead of schedule, guaranteeing smooth launch",
+      "Refactored marketing website for ad optimization startup, reducing load times by 75% ",
+      "Guaranteed swift onboarding of new employees in data ingestion team by normalizing 3rd-party APIs",
     ],
   },
   {
@@ -48,9 +48,9 @@ export const jobs: Job[] = [
     type: "Full-time",
     startDate: "2023-06-01T00:00:00+06:00",
     accomplishments: [
-      "Led the development of a multi-tenant sports management SaaS platform for international users, optimizing performance and scalability.",
-      "Developed a centralized REST API to manage authentication, database operations, and third-party API integrations, enhancing system efficiency.",
-      "Built an intuitive, custom admin panel to streamline administrative operations, reducing manual processes and improving overall management.",
+      "Spearheaded development of B2C management SaaS product, achieving 225% higher engagement",
+      "Devised and documented monolithic REST API, streamlining operations and boosting stability",
+      "Crafted native-like user experience for web app on mobile devices, increasing user retention by 280%",
     ],
   },
 ];

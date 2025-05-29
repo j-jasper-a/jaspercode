@@ -32,7 +32,11 @@ export function Skills() {
           <BadgeCollection collection={tools} />
         </div>
         <div className="flex flex-col items-center justify-between gap-2 md:flex-row">
-          <LinkButton href="/resume.pdf" variant="primary" size="medium">
+          <LinkButton
+            href="/assets/jihan_jasper_al_rashid_resume.pdf"
+            variant="primary"
+            size="medium"
+          >
             View full résumé
           </LinkButton>
           <LinkButton
