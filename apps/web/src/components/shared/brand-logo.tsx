@@ -1,19 +1,19 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export function BrandLogo() {
   const router = useRouter();
-  const scrollToTop = () => {
+  const pathname = usePathname();
+
+  function handleClick() {
+    if (pathname !== "/") {
+      router.push("/");
+    }
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
-  };
-
-  function handleClick() {
-    scrollToTop();
-    router.push("/");
   }
 
   return (

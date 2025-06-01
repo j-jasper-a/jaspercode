@@ -1,6 +1,6 @@
 "use client";
 
-import { navLinks } from "@/config/nav-links";
+import { navigationLinks } from "@/data/navigation-links";
 import { cn } from "@/lib/cn";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { selectIsMenuOpen, menuClose } from "@/store/slices/menu-slice";
@@ -37,7 +37,7 @@ export function MobileMenu() {
         )}
       >
         <ul className="flex h-full flex-col items-center justify-center">
-          {navLinks.map((link) => (
+          {navigationLinks.map((link) => (
             <li key={link.href} className="w-full">
               <Link
                 href={link.disabled ? "#" : link.href}

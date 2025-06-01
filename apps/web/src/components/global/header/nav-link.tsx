@@ -1,4 +1,4 @@
-import { NavLink as NavLinkType } from "@/config/nav-links";
+import { NavigationLink as NavLinkType } from "@/data/navigation-links";
 import { cn } from "@/lib/cn";
 import Link from "next/link";
 

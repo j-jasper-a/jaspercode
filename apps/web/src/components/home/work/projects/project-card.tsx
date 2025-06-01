@@ -51,7 +51,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             >
               View code
             </LinkButton>
-            <LinkButton href={project.demoUrl} variant="primary" size="medium">
+            <LinkButton href={project.url} variant="primary" size="medium">
               Live demo
             </LinkButton>
           </div>

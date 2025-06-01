@@ -1,4 +1,16 @@
-import { Project } from "@/types";
+import { z } from "zod";
+
+export const projectSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  summary: z.string(),
+  images: z.array(z.string()),
+  url: z.string(),
+  repoUrl: z.string(),
+  stack: z.array(z.string()),
+});
+
+export type Project = z.infer<typeof projectSchema>;
 
 export const projects: Project[] = [
   {
@@ -7,7 +19,7 @@ export const projects: Project[] = [
     summary:
       "An online book store built with Next.js, Tailwind CSS, and Sanity.io. It features a user-friendly interface, secure payment processing, and a user-friendly admin panel for managing products, orders, and customers.",
     images: ["/assets/work/bookverse-1.webp", "/assets/work/bookverse-2.webp"],
-    demoUrl: "https://bookverse.jaspercode.com",
+    url: "https://bookverse.jaspercode.com",
     repoUrl: "https://github.com/j-jasper-a/bookverse-demo",
     stack: [
       "TypeScript",
@@ -25,7 +37,7 @@ export const projects: Project[] = [
     summary:
       "A quiz web app where you can create and take quizzes. It features a sleek and minimalistic interface, a simple way to navigate, and a user-friendly admin panel for managing quizzes, questions, and answers.",
     images: ["/assets/work/wizzle-1.webp", "/assets/work/wizzle-2.webp"],
-    demoUrl: "https://wizzle.jaspercode.com",
+    url: "https://wizzle.jaspercode.com",
     repoUrl: "https://github.com/j-jasper-a/wizzle-demo",
     stack: [
       "TypeScript",
@@ -46,7 +58,7 @@ export const projects: Project[] = [
       "/assets/work/jaspercode-1.webp",
       "/assets/work/jaspercode-2.webp",
     ],
-    demoUrl: "https://jaspercode.com",
+    url: "https://jaspercode.com",
     repoUrl: "https://github.com/j-jasper-a/jaspercode",
     stack: ["TypeScript", "Next.js", "Tailwind CSS", "Redux Toolkit"],
   },
@@ -56,8 +68,14 @@ export const projects: Project[] = [
     summary:
       "A classy landing page for a Japanese fine dining restaurant. It features a dynamic menu and a user-friendly interface, making it easy for visitors to find what they're looking for and make a reservation.",
     images: ["/assets/work/ukiyo-1.webp", "/assets/work/ukiyo-2.webp"],
-    demoUrl: "https://ukiyo.jaspercode.com/",
+    url: "https://ukiyo.jaspercode.com/",
     repoUrl: "https://github.com/j-jasper-a/ukiyo",
     stack: ["TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"],
   },
 ];
+
+const featuredProjectIds = ["1", "2", "3", "4"];
+
+export const featuredProjects = projects.filter((project) =>
+  featuredProjectIds.includes(project.id),
+);

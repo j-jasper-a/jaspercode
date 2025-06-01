@@ -1,17 +1,17 @@
 import { BadgeCollection } from "@/components/ui/badge-collection";
 import { Card } from "@/components/ui/card";
 import { LinkButton } from "@/components/ui/link-button";
-import { skills } from "@/config/skills";
-import { socials } from "@/config/socials";
+import { skillSets } from "@/data/skill-sets";
+import { socialLinks } from "@/data/social-links";
 
 export function Skills() {
   return (
     <Card>
       <div className="flex flex-col gap-4">
-        {skills.map((skill) => (
-          <div key={skill.category} className="flex flex-col gap-2">
-            <p>{skill.category}</p>
-            <BadgeCollection collection={skill.items} />
+        {skillSets.map(({ name, skills }) => (
+          <div key={name} className="flex flex-col gap-2">
+            <p>{name}</p>
+            <BadgeCollection collection={skills} />
           </div>
         ))}
         <div className="flex flex-col items-center justify-between gap-2 md:flex-row">
@@ -23,7 +23,7 @@ export function Skills() {
             View full résumé
           </LinkButton>
           <LinkButton
-            href={socials.GITHUB_PROFILE_URL}
+            href={socialLinks.GITHUB_PROFILE_URL}
             variant="secondary"
             size="medium"
           >

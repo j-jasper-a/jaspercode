@@ -1,14 +1,14 @@
 import { z } from "zod";
 
-export const navLinkSchema = z.object({
+export const navigationLinkSchema = z.object({
   label: z.string(),
   href: z.string(),
   disabled: z.boolean(),
 });
 
-export type NavLink = z.infer<typeof navLinkSchema>;
+export type NavigationLink = z.infer<typeof navigationLinkSchema>;
 
-export const navLinks: NavLink[] = [
+export const navigationLinks: NavigationLink[] = [
   {
     label: "Work",
     href: "#work",
