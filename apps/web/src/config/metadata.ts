@@ -11,6 +11,7 @@ const info = {
     "Next.js Developer",
     "NestJS Developer",
   ],
+  OPEN_GRAPH_IMAGE_URL: "/assets/opengraph-image.png",
 };
 
 export const metadata: Metadata = {
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     siteName: info.TITLE,
     images: [
       {
-        url: "https://yourwebsite.com/og-image.jpg",
+        url: info.OPEN_GRAPH_IMAGE_URL,
         width: 1200,
         height: 630,
         alt: info.TITLE,
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: info.TITLE,
     description: info.DESCRIPTION,
-    images: ["https://yourwebsite.com/twitter-image.jpg"],
+    images: [info.OPEN_GRAPH_IMAGE_URL],
     creator: "@Jasper_JJA",
   },
 };
