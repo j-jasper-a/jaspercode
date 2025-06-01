@@ -1,11 +1,12 @@
 import { NavLink } from "./nav-link";
+import { BrandLogo } from "@/components/shared/brand-logo";
 import { LinkButton } from "@/components/ui/link-button";
 import { navLinks } from "@/data/nav-links";
 
 export function DesktopHeader() {
   return (
-    <nav className="mx-auto hidden max-w-7xl items-center justify-between p-4 md:flex">
-      <span className="w-fit">J</span>
+    <nav className="mx-auto hidden h-16 max-w-7xl items-center justify-between p-4 md:flex">
+      <BrandLogo />
       <ul className="flex items-center gap-8">
         {navLinks
           .filter((link) => link.label !== "Contact")

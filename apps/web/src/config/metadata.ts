@@ -44,8 +44,4 @@ export const metadata: Metadata = {
     images: ["https://yourwebsite.com/twitter-image.jpg"],
     creator: "@Jasper_JJA",
   },
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
 };
