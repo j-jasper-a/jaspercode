@@ -9,7 +9,15 @@ export const projects: Project[] = [
     images: ["/assets/work/bookverse-1.webp", "/assets/work/bookverse-2.webp"],
     demoUrl: "https://bookverse.jaspercode.com",
     repoUrl: "https://github.com/j-jasper-a/bookverse-demo",
-    stack: ["HTML", "CSS", "JavaScript"],
+    stack: [
+      "TypeScript",
+      "Next.js",
+      "Material UI",
+      "Redux Toolkit",
+      "TanStack Query",
+      "Express",
+      "Firebase",
+    ],
   },
   {
     id: "2",
@@ -19,26 +27,29 @@ export const projects: Project[] = [
     images: ["/assets/work/wizzle-1.webp", "/assets/work/wizzle-2.webp"],
     demoUrl: "https://wizzle.jaspercode.com",
     repoUrl: "https://github.com/j-jasper-a/wizzle-demo",
-    stack: ["HTML", "CSS", "JavaScript"],
+    stack: [
+      "TypeScript",
+      "Next.js",
+      "Tailwind CSS",
+      "Zustand",
+      "TanStack Query",
+      "Express",
+      "Firebase",
+    ],
   },
   {
     id: "3",
     title: "Portfolio",
     summary:
       "A versatile website that showcases my software engineering skills through a curated portfolio and ever-evolving, thoughtfully designed features that reflect my growing expertise.",
-    images: ["/assets/work/bookverse-1.webp", "/assets/work/bookverse-2.webp"],
+    images: [
+      "/assets/work/jaspercode-1.webp",
+      "/assets/work/jaspercode-2.webp",
+    ],
     demoUrl: "https://jaspercode.com",
     repoUrl: "https://github.com/j-jasper-a/jaspercode",
-    stack: [
-      "TypeScript",
-      "Next.js",
-      "Tailwind CSS",
-      "Redux",
-      "NestJS",
-      "Vercel",
-    ],
+    stack: ["TypeScript", "Next.js", "Tailwind CSS", "Redux Toolkit"],
   },
-
   {
     id: "4",
     title: "Ukiyo",
@@ -47,6 +58,6 @@ export const projects: Project[] = [
     images: ["/assets/work/ukiyo-1.webp", "/assets/work/ukiyo-2.webp"],
     demoUrl: "https://ukiyo.jaspercode.com/",
     repoUrl: "https://github.com/j-jasper-a/ukiyo",
-    stack: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js"],
+    stack: ["TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"],
   },
 ];
