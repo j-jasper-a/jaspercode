@@ -1,6 +1,6 @@
 "use client";
 
-import { navLinks } from "@/data/nav-links";
+import { navLinks } from "@/config/nav-links";
 import { cn } from "@/lib/cn";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { selectIsMenuOpen, menuClose } from "@/store/slices/menu-slice";
@@ -39,8 +39,16 @@ export function MobileMenu() {
         <ul className="flex h-full flex-col items-center justify-center">
           {navLinks.map((link) => (
             <li key={link.href} className="w-full">
-              <Link href={link.href} onClick={() => dispatch(menuClose())}>
-                <div className="w-full p-8 text-center hover:text-color-accent">
+              <Link
+                href={link.disabled ? "#" : link.href}
+                onClick={link.disabled ? () => {} : () => dispatch(menuClose())}
+              >
+                <div
+                  className={cn(
+                    "w-full p-8 text-center hover:text-color-accent",
+                    link.disabled && "pointer-events-none opacity-50",
+                  )}
+                >
                   {link.label}
                 </div>
               </Link>

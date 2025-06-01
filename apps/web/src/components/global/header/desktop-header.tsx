@@ -1,7 +1,7 @@
 import { NavLink } from "./nav-link";
 import { BrandLogo } from "@/components/shared/brand-logo";
 import { LinkButton } from "@/components/ui/link-button";
-import { navLinks } from "@/data/nav-links";
+import { navLinks } from "@/config/nav-links";
 
 export function DesktopHeader() {
   return (
@@ -11,7 +11,7 @@ export function DesktopHeader() {
         {navLinks
           .filter((link) => link.label !== "Contact")
           .map((link) => (
-            <NavLink key={link.href} href={link.href} label={link.label} />
+            <NavLink key={link.href} {...link} />
           ))}
         <li>
           <LinkButton href="#contact" variant="primary" size="medium">

@@ -15,6 +15,7 @@ const info = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL(info.URL),
   title: info.TITLE,
   description: info.DESCRIPTION,
   authors: [{ name: info.NAME, url: info.URL }],
