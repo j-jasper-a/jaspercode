@@ -2,6 +2,7 @@ import { NavLink } from "./nav-link";
 import { BrandLogo } from "@/components/shared/brand-logo";
 import { Button } from "@/components/ui/button";
 import { navigationLinks } from "@/data/navigation-links";
+import { ArrowRight as GoIcon } from "lucide-react";
 import Link from "next/link";
 
 export function DesktopHeader() {
@@ -16,7 +17,10 @@ export function DesktopHeader() {
           ))}
         <li>
           <Button asChild variant="default" size="sm">
-            <Link href="#contact">Get in touch</Link>
+            <Link href="#contact">
+              <span>Get in touch</span>
+              <GoIcon className="text-muted-foreground" />
+            </Link>
           </Button>
         </li>
       </ul>

@@ -17,13 +17,13 @@ export function Skills() {
           </div>
         ))}
         <div className="flex flex-col items-center justify-between gap-2 md:flex-row">
-          <Button asChild variant="default" size="default">
+          <Button asChild variant="default" size="sm">
             <Link href="/assets/jihan_jasper_al_rashid_resume.pdf">
               <span>View full résumé</span>
               <ExternalLinkIcon className="text-muted-foreground" />
             </Link>
           </Button>
-          <Button asChild variant="secondary" size="default">
+          <Button asChild variant="secondary" size="sm">
             <Link href={socialLinks.GITHUB_PROFILE_URL}>
               <span>GitHub</span>
               <ExternalLinkIcon className="text-muted-foreground" />

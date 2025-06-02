@@ -26,8 +26,8 @@ export function Header() {
   return (
     <div
       className={cn(
-        `sticky top-0 left-0 z-10 w-full bg-background shadow-background transition-shadow duration-300`,
-        scrolled ? "shadow-2xl" : "",
+        `sticky top-0 left-0 z-10 w-full bg-background shadow-black/50 transition-shadow duration-300`,
+        scrolled ? "shadow-lg" : "",
       )}
     >
       <MobileHeader />

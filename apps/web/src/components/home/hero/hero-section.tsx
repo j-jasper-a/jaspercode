@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export function HeroSection() {
   return (
-    <div className="flex h-[75vh] flex-col items-center justify-between gap-4">
+    <div className="flex h-[75vh] flex-col items-center justify-between gap-4 px-2">
       <div />
       <div className="flex flex-col items-center gap-4">
         <HeroAnimation />
@@ -30,7 +30,7 @@ export function HeroSection() {
           </Link>
         </Button>
         <Button asChild variant="secondary" size={"lg"}>
-          <Link href="#contact">
+          <Link href="#work">
             <span>See my work</span>
             <GoIcon className="text-muted-foreground" />
           </Link>

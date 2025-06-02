@@ -46,9 +46,9 @@ export function ContactForm() {
         <AppInput label="Name" {...register("name")} />
         <p className="text-xs text-destructive">{errors.name?.message}</p>
         <AppInput label="Email" {...register("email")} />
-        <p>{errors.email?.message}</p>
+        <p className="text-xs text-destructive">{errors.email?.message}</p>
         <AppTextarea label="Message" {...register("message")} />
-        <p>{errors.message?.message}</p>
+        <p className="text-xs text-destructive">{errors.message?.message}</p>
         <Button type="submit" variant="default" size="default">
           {loading ? (
             <span className="animate-pulse">Sending message...</span>

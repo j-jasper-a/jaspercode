@@ -3,7 +3,7 @@ import { Header } from "@/components/global/header/header";
 import { Providers } from "@/components/providers/providers";
 import "@/styles/globals.css";
 import {
-  Inter as FontBackup,
+  IBM_Plex_Sans as FontBackup,
   Merriweather as FontSpecial,
 } from "next/font/google";
 import localFont from "next/font/local";
@@ -16,7 +16,7 @@ const fontSans = localFont({
 
 const fontBackup = FontBackup({
   subsets: ["latin"],
-  weight: "variable",
+  weight: ["400", "500", "600", "700"],
   variable: "--font-backup",
 });
 
