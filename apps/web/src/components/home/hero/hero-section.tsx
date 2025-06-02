@@ -1,6 +1,7 @@
 import { HeroAnimation } from "./hero-animation";
-import { LinkButton } from "@/components/ui/link-button";
-import { CodeSquare as CodeIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { CodeSquare as CodeIcon, ArrowRight as GoIcon } from "lucide-react";
+import Link from "next/link";
 
 export function HeroSection() {
   return (
@@ -12,20 +13,28 @@ export function HeroSection() {
           I write code for the future.
         </h1>
         <div className="text-center">
-          <p className="text-2xl text-color-accent">Jihan Jasper Al Rashid</p>
-          <p className="text-lg text-color-foreground-secondary">
+          <p className="text-2xl text-accent-foreground">
+            Jihan Jasper Al Rashid
+          </p>
+          <p className="text-lg text-muted-foreground">
             <CodeIcon size={18} className="mr-1 mb-1 inline" />
             Software Engineer
           </p>
         </div>
       </div>
       <div className="flex w-full flex-col items-center justify-center gap-2 md:w-1/2 md:flex-row">
-        <LinkButton href="#contact" variant="primary" size="large">
-          Get in touch
-        </LinkButton>
-        <LinkButton href="#work" variant="secondary" size="large">
-          See my work
-        </LinkButton>
+        <Button asChild variant="default" size={"lg"}>
+          <Link href="#contact">
+            <span>Get in touch</span>
+            <GoIcon className="text-muted-foreground" />
+          </Link>
+        </Button>
+        <Button asChild variant="secondary" size={"lg"}>
+          <Link href="#contact">
+            <span>See my work</span>
+            <GoIcon className="text-muted-foreground" />
+          </Link>
+        </Button>
       </div>
     </div>
   );

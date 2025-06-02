@@ -19,7 +19,7 @@ export function BrandLogo() {
   return (
     <button
       onClick={handleClick}
-      className="flex h-full cursor-pointer rounded-lg bg-color-foreground-primary px-2 py-1 text-color-background-primary transition-all duration-300 ease-in-out hover:bg-color-accent"
+      className="flex h-full cursor-pointer rounded-sm bg-foreground px-2 py-1 text-background transition-all duration-300 ease-in-out hover:bg-accent-foreground"
     >
       <svg
         className="h-full w-auto"

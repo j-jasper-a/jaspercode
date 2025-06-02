@@ -1,5 +1,5 @@
 import { NavigationLink as NavLinkType } from "@/data/navigation-links";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 export function NavLink({ href, label, disabled }: NavLinkType) {
@@ -8,7 +8,7 @@ export function NavLink({ href, label, disabled }: NavLinkType) {
       <Link
         href={disabled ? "#" : href}
         className={cn(
-          "text-size-secondary transition-all duration-300 hover:text-color-accent",
+          "text-sm transition-all duration-300 hover:text-accent-foreground",
           disabled && "pointer-events-none opacity-50",
         )}
       >

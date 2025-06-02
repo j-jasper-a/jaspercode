@@ -1,8 +1,10 @@
 import { BadgeCollection } from "@/components/ui/badge-collection";
+import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { LinkButton } from "@/components/ui/link-button";
 import { skillSets } from "@/data/skill-sets";
 import { socialLinks } from "@/data/social-links";
+import { ExternalLinkIcon } from "lucide-react";
+import Link from "next/link";
 
 export function Skills() {
   return (
@@ -15,20 +17,18 @@ export function Skills() {
           </div>
         ))}
         <div className="flex flex-col items-center justify-between gap-2 md:flex-row">
-          <LinkButton
-            href="/assets/jihan_jasper_al_rashid_resume.pdf"
-            variant="primary"
-            size="medium"
-          >
-            View full résumé
-          </LinkButton>
-          <LinkButton
-            href={socialLinks.GITHUB_PROFILE_URL}
-            variant="secondary"
-            size="medium"
-          >
-            GitHub
-          </LinkButton>
+          <Button asChild variant="default" size="default">
+            <Link href="/assets/jihan_jasper_al_rashid_resume.pdf">
+              <span>View full résumé</span>
+              <ExternalLinkIcon className="text-muted-foreground" />
+            </Link>
+          </Button>
+          <Button asChild variant="secondary" size="default">
+            <Link href={socialLinks.GITHUB_PROFILE_URL}>
+              <span>GitHub</span>
+              <ExternalLinkIcon className="text-muted-foreground" />
+            </Link>
+          </Button>
         </div>
       </div>
     </Card>

@@ -2,7 +2,7 @@
 
 import { DesktopHeader } from "./desktop-header";
 import { MobileHeader } from "./mobile-header";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 
 export function Header() {
@@ -26,8 +26,8 @@ export function Header() {
   return (
     <div
       className={cn(
-        `sticky top-0 left-0 z-10 w-full bg-color-background-primary shadow-black transition-shadow duration-300`,
-        scrolled ? "shadow-md" : "",
+        `sticky top-0 left-0 z-10 w-full bg-background shadow-background transition-shadow duration-300`,
+        scrolled ? "shadow-2xl" : "",
       )}
     >
       <MobileHeader />

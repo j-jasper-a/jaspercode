@@ -1,4 +1,4 @@
-import { Job } from "@/types";
+import { Job } from "@/data/jobs";
 import dayjs from "dayjs";
 
 type GetJobDurationProps = {

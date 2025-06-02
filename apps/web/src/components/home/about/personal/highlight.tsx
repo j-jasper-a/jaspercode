@@ -5,5 +5,5 @@ type HighlightProps = {
 };
 
 export function Highlight({ children }: HighlightProps) {
-  return <span className="text-color-foreground-primary">{children}</span>;
+  return <span className="text-foreground">{children}</span>;
 }

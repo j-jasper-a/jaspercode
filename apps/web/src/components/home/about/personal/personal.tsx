@@ -15,7 +15,7 @@ export function Personal() {
         />
       </div>
       <div>
-        <p className="text-xl text-color-foreground-secondary">
+        <p className="text-xl text-muted-foreground">
           Hey, there! I&apos;m a software engineer with more than{" "}
           <Highlight>4 years</Highlight> of <Highlight>full-stack</Highlight>{" "}
           industry experience. I specialize in crafting{" "}

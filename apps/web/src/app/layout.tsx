@@ -9,9 +9,9 @@ import {
 import localFont from "next/font/local";
 import { ReactNode } from "react";
 
-const fontMain = localFont({
+const fontSans = localFont({
   src: "./fonts/Satoshi-Variable.woff2",
-  variable: "--font-main",
+  variable: "--font-sans",
 });
 
 const fontBackup = FontBackup({
@@ -34,9 +34,9 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="dark scroll-smooth">
       <body
-        className={`${fontMain.variable} ${fontBackup.variable} ${fontSpecial.variable} antialiased`}
+        className={`${fontSans.variable} ${fontBackup.variable} ${fontSpecial.variable} antialiased`}
       >
         <Providers>
           <Header />

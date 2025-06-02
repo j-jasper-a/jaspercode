@@ -2,11 +2,12 @@
 
 import { AppInput } from "./app-input";
 import { AppTextarea } from "./app-textarea";
-import { AppButton } from "@/components/ui/app-button";
+import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { sendContactEmail } from "@/lib/send-contact-message";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ContactMessage, contactMessageSchema } from "@jaspercode/shared";
+import { Send as SendMessageIcon } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -43,14 +44,19 @@ export function ContactForm() {
     <Card>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
         <AppInput label="Name" {...register("name")} />
-        <p>{errors.name?.message}</p>
+        <p className="text-xs text-destructive">{errors.name?.message}</p>
         <AppInput label="Email" {...register("email")} />
         <p>{errors.email?.message}</p>
         <AppTextarea label="Message" {...register("message")} />
         <p>{errors.message?.message}</p>
-        <AppButton type="submit" size="large" variant="primary">
-          {loading ? "Sending..." : "Send Message"}
-        </AppButton>
+        <Button type="submit" variant="default" size="default">
+          {loading ? (
+            <span className="animate-pulse">Sending message...</span>
+          ) : (
+            <span>Send message</span>
+          )}
+          <SendMessageIcon className="text-muted-foreground" />
+        </Button>
         {success && (
           <p className="text-emerald-200">Message sent successfully!</p>
         )}

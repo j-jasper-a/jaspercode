@@ -1,8 +1,10 @@
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { LinkButton } from "@/components/ui/link-button";
-import { Project } from "@/types";
+import { Project } from "@/data/projects";
+import { ExternalLinkIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 type ProjectCardProps = {
   project: Project;
@@ -11,18 +13,16 @@ type ProjectCardProps = {
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Card>
-      <div className="flex h-full flex-col justify-between gap-4">
+      <div className="group flex h-full flex-col justify-between gap-4">
         <div className="flex flex-col gap-2">
-          <p className="text-size-tertiary text-color-foreground-secondary uppercase">
-            E-commerce
-          </p>
+          <p className="text-xs text-muted-foreground uppercase">E-commerce</p>
           <p>{project.title}</p>
-          <p className="text-size-secondary text-color-foreground-secondary">
-            {project.summary}
-          </p>
+          <p className="text-sm text-muted-foreground">{project.summary}</p>
           <div className="flex flex-wrap gap-2">
             {project.stack.map((tech) => (
-              <Badge key={tech}>{tech}</Badge>
+              <Badge variant="secondary" key={tech}>
+                {tech}
+              </Badge>
             ))}
           </div>
         </div>
@@ -31,7 +31,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {project.images.map((src, index) => (
               <div
                 key={index}
-                className="aspect-video overflow-hidden rounded-xl bg-color-foreground-primary/50 transition-all duration-300 ease-in-out group-hover:bg-color-foreground-primary/75"
+                className="aspect-video overflow-hidden rounded-md bg-foreground/50 transition-all duration-300 ease-in-out group-hover:bg-foreground/75"
               >
                 <Image
                   src={src}
@@ -44,16 +44,18 @@ export function ProjectCard({ project }: ProjectCardProps) {
             ))}
           </div>
           <div className="flex items-center justify-between gap-2">
-            <LinkButton
-              href={project.repoUrl}
-              variant="secondary"
-              size="medium"
-            >
-              View code
-            </LinkButton>
-            <LinkButton href={project.url} variant="primary" size="medium">
-              Live demo
-            </LinkButton>
+            <Button asChild variant="secondary" size="sm">
+              <Link href={project.repoUrl}>
+                <span>View code</span>
+                <ExternalLinkIcon className="text-muted-foreground" />
+              </Link>
+            </Button>
+            <Button asChild variant="default" size="sm">
+              <Link href={project.url}>
+                <span>Live demo</span>
+                <ExternalLinkIcon className="text-muted-foreground" />
+              </Link>
+            </Button>
           </div>
         </div>
       </div>

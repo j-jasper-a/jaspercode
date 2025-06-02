@@ -1,7 +1,8 @@
 import { NavLink } from "./nav-link";
 import { BrandLogo } from "@/components/shared/brand-logo";
-import { LinkButton } from "@/components/ui/link-button";
+import { Button } from "@/components/ui/button";
 import { navigationLinks } from "@/data/navigation-links";
+import Link from "next/link";
 
 export function DesktopHeader() {
   return (
@@ -14,9 +15,9 @@ export function DesktopHeader() {
             <NavLink key={link.href} {...link} />
           ))}
         <li>
-          <LinkButton href="#contact" variant="primary" size="medium">
-            Get in touch
-          </LinkButton>
+          <Button asChild variant="default" size="sm">
+            <Link href="#contact">Get in touch</Link>
+          </Button>
         </li>
       </ul>
     </nav>
