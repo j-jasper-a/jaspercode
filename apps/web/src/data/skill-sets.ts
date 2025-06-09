@@ -15,6 +15,8 @@ export const skillSets: SkillSet[] = [
       "JavaScript",
       "React",
       "Next.js",
+      "Vue.js",
+      "Nuxt",
       "CSS",
       "Tailwind CSS",
       "Sass",
@@ -29,7 +31,15 @@ export const skillSets: SkillSet[] = [
   },
   {
     name: "Backend",
-    skills: ["Node.js", "Express", "NestJS", "Firebase", "PHP"],
+    skills: [
+      "Node.js",
+      "Express",
+      "NestJS",
+      "PostgreSQL",
+      "Prisma",
+      "Firebase",
+      "PHP",
+    ],
   },
   {
     name: "DevOps & Tools",
@@ -38,6 +48,7 @@ export const skillSets: SkillSet[] = [
       "Docker",
       "Linux",
       "Vercel",
+      "Neon",
       "Turborepo",
       "Notion",
       "ClickUp",
