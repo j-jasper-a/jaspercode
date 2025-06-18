@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export function DesktopHeader() {
   return (
-    <nav className="mx-auto hidden h-16 max-w-7xl items-center justify-between p-4 md:flex">
+    <nav className="mx-auto hidden h-16 max-w-[var(--breakpoint-2xl)] items-center justify-between p-4 lg:flex">
       <BrandLogo />
       <ul className="flex items-center gap-8">
         {navigationLinks

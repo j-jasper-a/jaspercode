@@ -5,11 +5,11 @@ import Link from "next/link";
 
 export function HeroSection() {
   return (
-    <div className="flex h-[75vh] flex-col items-center justify-between gap-4 px-2">
+    <div className="flex min-h-[75vh] flex-col items-center justify-between gap-4 px-2">
       <div />
       <div className="flex flex-col items-center gap-4">
         <HeroAnimation />
-        <h1 className="text-center text-6xl font-bold tracking-tighter md:text-6xl">
+        <h1 className="text-center text-6xl font-bold tracking-tighter lg:text-6xl">
           I write code for the future.
         </h1>
         <div className="text-center">
@@ -22,7 +22,7 @@ export function HeroSection() {
           </p>
         </div>
       </div>
-      <div className="flex w-full flex-col items-center justify-center gap-2 md:w-1/2 md:flex-row">
+      <div className="flex w-full flex-col items-center justify-center gap-2 lg:w-1/2 lg:flex-row">
         <Button asChild variant="default" size={"lg"}>
           <Link href="#contact">
             <span>Get in touch</span>

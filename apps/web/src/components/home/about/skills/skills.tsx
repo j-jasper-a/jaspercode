@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { skillSets } from "@/data/skill-sets";
 import { socialLinks } from "@/data/social-links";
-import { ExternalLinkIcon } from "lucide-react";
+import { ExternalLinkIcon, DownloadIcon } from "lucide-react";
 import Link from "next/link";
 
 export function Skills() {
@@ -16,11 +16,16 @@ export function Skills() {
             <BadgeCollection collection={skills} />
           </div>
         ))}
-        <div className="flex flex-col items-center justify-between gap-2 md:flex-row">
+        <div className="mt-2 flex flex-col items-center justify-between gap-2 lg:flex-row">
           <Button asChild variant="default" size="sm">
-            <Link href="/assets/jihan_jasper_al_rashid_resume.pdf">
-              <span>View full résumé</span>
-              <ExternalLinkIcon className="text-muted-foreground" />
+            <Link
+              href="/assets/jihan_jasper_al_rashid_resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+            >
+              <span>Download résumé PDF</span>
+              <DownloadIcon className="text-muted-foreground" />
             </Link>
           </Button>
           <Button asChild variant="secondary" size="sm">

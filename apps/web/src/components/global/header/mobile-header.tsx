@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export function MobileHeader() {
   return (
-    <nav className="relative flex h-16 items-center justify-between p-4 md:hidden">
+    <nav className="relative flex h-16 items-center justify-between p-4 lg:hidden">
       <div className="flex h-full items-center gap-4">
         <MobileMenu />
         <BrandLogo />

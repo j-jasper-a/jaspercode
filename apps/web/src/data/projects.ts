@@ -4,6 +4,7 @@ export const projectSchema = z.object({
   id: z.string(),
   title: z.string(),
   summary: z.string(),
+  type: z.string(),
   images: z.array(z.string()),
   url: z.string(),
   repoUrl: z.string(),
@@ -18,6 +19,7 @@ export const projects: Project[] = [
     title: "Bookverse",
     summary:
       "An online book store built with Next.js, Tailwind CSS, and Sanity.io. It features a user-friendly interface, secure payment processing, and a user-friendly admin panel for managing products, orders, and customers.",
+    type: "ecommerce",
     images: ["/assets/work/bookverse-1.webp", "/assets/work/bookverse-2.webp"],
     url: "https://bookverse.jaspercode.com",
     repoUrl: "https://github.com/j-jasper-a/bookverse-demo",
@@ -37,6 +39,7 @@ export const projects: Project[] = [
     title: "Wizzle",
     summary:
       "A quiz web app where you can create and take quizzes. It features a sleek and minimalistic interface, a simple way to navigate, and a user-friendly admin panel for managing quizzes, questions, and answers.",
+    type: "saas",
     images: ["/assets/work/wizzle-1.webp", "/assets/work/wizzle-2.webp"],
     url: "https://wizzle.jaspercode.com",
     repoUrl: "https://github.com/j-jasper-a/wizzle-demo",
@@ -56,6 +59,7 @@ export const projects: Project[] = [
     title: "Portfolio",
     summary:
       "A versatile website that showcases my software engineering skills through a curated portfolio and ever-evolving, thoughtfully designed features that reflect my growing expertise.",
+    type: "marketing",
     images: [
       "/assets/work/jaspercode-1.webp",
       "/assets/work/jaspercode-2.webp",
@@ -69,6 +73,7 @@ export const projects: Project[] = [
     title: "Ukiyo",
     summary:
       "A classy landing page for a Japanese fine dining restaurant. It features a dynamic menu and a user-friendly interface, making it easy for visitors to find what they're looking for and make a reservation.",
+    type: "marketing",
     images: ["/assets/work/ukiyo-1.webp", "/assets/work/ukiyo-2.webp"],
     url: "https://ukiyo-demo.jaspercode.com/",
     repoUrl: "https://github.com/j-jasper-a/ukiyo-demo",

@@ -10,12 +10,27 @@ type ProjectCardProps = {
   project: Project;
 };
 
+function getTypeName(type: string): string {
+  switch (type) {
+    case "ecommerce":
+      return "E-commerce";
+    case "saas":
+      return "SaaS";
+    case "marketing":
+      return "Marketing";
+    default:
+      return "Project";
+  }
+}
+
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Card>
       <div className="group flex h-full flex-col justify-between gap-4">
         <div className="flex flex-col gap-2">
-          <p className="text-xs text-muted-foreground uppercase">E-commerce</p>
+          <p className="text-xs text-muted-foreground uppercase">
+            {getTypeName(project.type)}
+          </p>
           <p>{project.title}</p>
           <p className="text-sm text-muted-foreground">{project.summary}</p>
           <div className="flex flex-wrap gap-2">
