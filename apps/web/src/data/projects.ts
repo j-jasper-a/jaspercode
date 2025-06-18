@@ -24,6 +24,7 @@ export const projects: Project[] = [
     stack: [
       "TypeScript",
       "Next.js",
+      "React",
       "Material UI",
       "Redux Toolkit",
       "TanStack Query",
@@ -42,6 +43,7 @@ export const projects: Project[] = [
     stack: [
       "TypeScript",
       "Next.js",
+      "React",
       "Tailwind CSS",
       "Zustand",
       "TanStack Query",
@@ -60,7 +62,7 @@ export const projects: Project[] = [
     ],
     url: "https://jaspercode.com",
     repoUrl: "https://github.com/j-jasper-a/jaspercode",
-    stack: ["TypeScript", "Next.js", "Tailwind CSS", "Redux Toolkit"],
+    stack: ["TypeScript", "Next.js", "React", "Tailwind CSS", "Redux Toolkit"],
   },
   {
     id: "4",
@@ -68,9 +70,9 @@ export const projects: Project[] = [
     summary:
       "A classy landing page for a Japanese fine dining restaurant. It features a dynamic menu and a user-friendly interface, making it easy for visitors to find what they're looking for and make a reservation.",
     images: ["/assets/work/ukiyo-1.webp", "/assets/work/ukiyo-2.webp"],
-    url: "https://ukiyo.jaspercode.com/",
-    repoUrl: "https://github.com/j-jasper-a/ukiyo",
-    stack: ["TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"],
+    url: "https://ukiyo-demo.jaspercode.com/",
+    repoUrl: "https://github.com/j-jasper-a/ukiyo-demo",
+    stack: ["TypeScript", "Astro", "React", "Tailwind CSS", "Motion"],
   },
 ];
 

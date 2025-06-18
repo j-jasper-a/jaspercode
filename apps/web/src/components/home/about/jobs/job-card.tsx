@@ -15,7 +15,12 @@ export function JobCard({ job }: JobCardProps) {
     : "Present";
 
   return (
-    <Link href={job.company.url} target="_blank" passHref>
+    <Link
+      href={job.company.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      passHref
+    >
       <Card>
         <p className="text-xs text-muted-foreground uppercase">
           {jobStartDate} — {jobEndDate}

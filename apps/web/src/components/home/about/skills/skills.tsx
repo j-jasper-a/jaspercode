@@ -24,7 +24,11 @@ export function Skills() {
             </Link>
           </Button>
           <Button asChild variant="secondary" size="sm">
-            <Link href={socialLinks.GITHUB_PROFILE_URL}>
+            <Link
+              href={socialLinks.GITHUB_PROFILE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <span>GitHub</span>
               <ExternalLinkIcon className="text-muted-foreground" />
             </Link>

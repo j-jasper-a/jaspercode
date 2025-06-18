@@ -45,13 +45,21 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
           <div className="flex items-center justify-between gap-2">
             <Button asChild variant="secondary" size="sm">
-              <Link href={project.repoUrl}>
+              <Link
+                href={project.repoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <span>View code</span>
                 <ExternalLinkIcon className="text-muted-foreground" />
               </Link>
             </Button>
             <Button asChild variant="default" size="sm">
-              <Link href={project.url}>
+              <Link
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <span>Live demo</span>
                 <ExternalLinkIcon className="text-muted-foreground" />
               </Link>
