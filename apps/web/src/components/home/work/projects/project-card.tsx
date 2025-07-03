@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Project } from "@/data/projects";
+import { Project } from "@/content/projects";
 import { ExternalLinkIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -28,11 +28,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
     <Card>
       <div className="group flex h-full flex-col justify-between gap-4">
         <div className="flex flex-col gap-2">
-          <p className="text-xs text-muted-foreground uppercase">
+          <p className="text-muted-foreground text-xs uppercase">
             {getTypeName(project.type)}
           </p>
           <p>{project.title}</p>
-          <p className="text-sm text-muted-foreground">{project.summary}</p>
+          <p className="text-muted-foreground text-sm">{project.summary}</p>
           <div className="flex flex-wrap gap-2">
             {project.stack.map((tech) => (
               <Badge variant="secondary" key={tech}>
@@ -46,7 +46,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {project.images.map((src, index) => (
               <div
                 key={index}
-                className="aspect-video overflow-hidden rounded-md bg-foreground/50 transition-all duration-300 ease-in-out group-hover:bg-foreground/75"
+                className="bg-foreground/50 group-hover:bg-foreground/75 aspect-video overflow-hidden rounded-md transition-all duration-300 ease-in-out"
               >
                 <Image
                   src={src}

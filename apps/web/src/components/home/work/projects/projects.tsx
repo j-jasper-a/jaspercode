@@ -1,5 +1,5 @@
+import { featuredProjects } from "@/content/projects";
 import { ProjectCard } from "./project-card";
-import { featuredProjects } from "@/data/projects";
 
 export function Projects() {
   return (

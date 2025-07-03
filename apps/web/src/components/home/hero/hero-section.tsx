@@ -1,7 +1,7 @@
-import { HeroAnimation } from "./hero-animation";
 import { Button } from "@/components/ui/button";
 import { CodeSquare as CodeIcon, ArrowRight as GoIcon } from "lucide-react";
 import Link from "next/link";
+import { HeroAnimation } from "./hero-animation";
 
 export function HeroSection() {
   return (
@@ -13,11 +13,11 @@ export function HeroSection() {
           I write code for the future.
         </h1>
         <div className="text-center">
-          <p className="text-2xl text-accent-foreground">
+          <p className="text-accent-foreground text-2xl">
             Jihan Jasper Al Rashid
           </p>
-          <p className="text-lg text-muted-foreground">
-            <CodeIcon size={18} className="mr-1 mb-1 inline" />
+          <p className="text-muted-foreground text-lg">
+            <CodeIcon size={18} className="mb-1 mr-1 inline" />
             Software Engineer
           </p>
         </div>

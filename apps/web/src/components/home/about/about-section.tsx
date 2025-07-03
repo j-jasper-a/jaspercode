@@ -1,7 +1,7 @@
+import { SectionHeading } from "@/components/ui/section-heading";
 import { Jobs } from "./jobs/jobs";
 import { Personal } from "./personal/personal";
 import { Skills } from "./skills/skills";
-import { SectionHeading } from "@/components/ui/section-heading";
 
 export function AboutSection() {
   return (

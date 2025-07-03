@@ -1,5 +1,5 @@
 import { ProjectCard } from "@/components/home/work/projects/project-card";
-import { projects } from "@/data/projects";
+import { projects } from "@/content/projects";
 
 export default function WorkPage() {
   return (

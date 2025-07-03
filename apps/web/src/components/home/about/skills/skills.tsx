@@ -1,16 +1,16 @@
 import { BadgeCollection } from "@/components/ui/badge-collection";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { skillSets } from "@/data/skill-sets";
+import { skills } from "@/content/skills";
 import { socialLinks } from "@/data/social-links";
-import { ExternalLinkIcon, DownloadIcon } from "lucide-react";
+import { DownloadIcon, ExternalLinkIcon } from "lucide-react";
 import Link from "next/link";
 
 export function Skills() {
   return (
     <Card>
       <div className="flex flex-col gap-4">
-        {skillSets.map(({ name, skills }) => (
+        {skills.map(({ name, technologies: skills }) => (
           <div key={name} className="flex flex-col gap-2">
             <p>{name}</p>
             <BadgeCollection collection={skills} />

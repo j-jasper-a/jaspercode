@@ -1,4 +1,4 @@
-import { ContactMessage } from "@jaspercode/shared";
+import { ContactMessage } from "@jaspercode/schemas";
 
 export type ScaffoldedContactMessage = {
   subject: string;

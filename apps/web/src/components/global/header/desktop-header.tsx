@@ -1,13 +1,13 @@
-import { NavLink } from "./nav-link";
 import { BrandLogo } from "@/components/shared/brand-logo";
 import { Button } from "@/components/ui/button";
 import { navigationLinks } from "@/data/navigation-links";
 import { ArrowRight as GoIcon } from "lucide-react";
 import Link from "next/link";
+import { NavLink } from "./nav-link";
 
 export function DesktopHeader() {
   return (
-    <nav className="mx-auto hidden h-16 max-w-[var(--breakpoint-2xl)] items-center justify-between p-4 lg:flex">
+    <nav className="mx-auto hidden h-16 max-w-[90rem] items-center justify-between p-4 lg:flex">
       <BrandLogo />
       <ul className="flex items-center gap-8">
         {navigationLinks

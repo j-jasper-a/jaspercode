@@ -1,5 +1,5 @@
+import { jobs } from "@/content/jobs";
 import { JobCard } from "./job-card";
-import { jobs } from "@/data/jobs";
 
 export function Jobs() {
   const finalJobs = jobs.reverse();

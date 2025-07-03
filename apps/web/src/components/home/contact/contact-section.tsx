@@ -1,5 +1,5 @@
-import { ContactForm } from "./contact-form/contact-form";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { ContactForm } from "./contact-form/contact-form";
 
 export function ContactSection() {
   return (

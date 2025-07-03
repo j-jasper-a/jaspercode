@@ -1,8 +1,8 @@
-import { MobileMenu } from "./mobile-menu";
 import { BrandLogo } from "@/components/shared/brand-logo";
 import { Button } from "@/components/ui/button";
 import { ArrowRight as GoIcon } from "lucide-react";
 import Link from "next/link";
+import { MobileMenu } from "./mobile-menu";
 
 export function MobileHeader() {
   return (

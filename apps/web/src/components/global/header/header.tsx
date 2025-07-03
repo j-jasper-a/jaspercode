@@ -1,9 +1,9 @@
 "use client";
 
+import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react";
 import { DesktopHeader } from "./desktop-header";
 import { MobileHeader } from "./mobile-header";
-import { cn } from "@/lib/utils";
-import { useState, useEffect } from "react";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -26,7 +26,7 @@ export function Header() {
   return (
     <div
       className={cn(
-        `sticky top-0 left-0 z-10 w-full bg-background shadow-black/50 transition-shadow duration-300`,
+        `bg-background sticky left-0 top-0 z-10 w-full shadow-black/50 transition-shadow duration-300`,
         scrolled ? "shadow-lg" : "",
       )}
     >

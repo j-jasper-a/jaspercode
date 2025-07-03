@@ -4,14 +4,22 @@ import { Providers } from "@/components/providers/providers";
 import "@/styles/globals.css";
 import {
   IBM_Plex_Sans as FontBackup,
+  JetBrains_Mono as FontMono,
+  Be_Vietnam_Pro as FontSans,
   Merriweather as FontSpecial,
 } from "next/font/google";
-import localFont from "next/font/local";
 import { ReactNode } from "react";
 
-const fontSans = localFont({
-  src: "./fonts/Satoshi-Variable.woff2",
+const fontSans = FontSans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
+});
+
+const fontMono = FontMono({
+  subsets: ["latin"],
+  weight: "variable",
+  variable: "--font-mono",
 });
 
 const fontBackup = FontBackup({
@@ -36,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth">
       <body
-        className={`${fontSans.variable} ${fontBackup.variable} ${fontSpecial.variable} antialiased`}
+        className={`${fontSans.variable} ${fontMono.variable} ${fontBackup.variable} ${fontSpecial.variable} antialiased`}
       >
         <Providers>
           <Header />

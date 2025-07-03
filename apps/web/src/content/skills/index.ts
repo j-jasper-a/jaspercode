@@ -1,16 +1,16 @@
 import { z } from "zod";
 
-export const skillSetSchema = z.object({
+export const SkillSchema = z.object({
   name: z.string(),
-  skills: z.array(z.string()),
+  technologies: z.array(z.string()),
 });
 
-export type SkillSet = z.infer<typeof skillSetSchema>;
+export type Skill = z.infer<typeof SkillSchema>;
 
-export const skillSets: SkillSet[] = [
+export const skills: Skill[] = [
   {
     name: "Frontend",
-    skills: [
+    technologies: [
       "TypeScript",
       "JavaScript",
       "React",
@@ -33,7 +33,7 @@ export const skillSets: SkillSet[] = [
   },
   {
     name: "Backend",
-    skills: [
+    technologies: [
       "Node.js",
       "Express",
       "NestJS",
@@ -45,7 +45,7 @@ export const skillSets: SkillSet[] = [
   },
   {
     name: "DevOps & Tools",
-    skills: [
+    technologies: [
       "Git",
       "Docker",
       "Linux",

@@ -16,7 +16,10 @@ const info = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(info.URL),
-  title: info.TITLE,
+  title: {
+    default: info.TITLE,
+    template: `%s | ${info.NAME}`,
+  },
   description: info.DESCRIPTION,
   authors: [{ name: info.NAME, url: info.URL }],
   keywords: info.KEYWORDS,
@@ -24,7 +27,10 @@ export const metadata: Metadata = {
     canonical: info.URL,
   },
   openGraph: {
-    title: info.TITLE,
+    title: {
+      default: info.TITLE,
+      template: `%s | ${info.NAME}`,
+    },
     description: info.DESCRIPTION,
     url: info.URL,
     siteName: info.TITLE,

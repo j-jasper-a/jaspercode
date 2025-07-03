@@ -1,8 +1,0 @@
-{
-  "name": "@jaspercode/shared",
-  "version": "1.0.0",
-  "main": "src/index.ts",
-  "author": "Jihan Jasper Al Rashid",
-  "license": "ISC",
-  "packageManager": "pnpm@10.10.0"
-}

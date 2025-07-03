@@ -1,5 +1,5 @@
-import { Projects } from "./projects/projects";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { Projects } from "./projects/projects";
 
 export function WorkSection() {
   return (

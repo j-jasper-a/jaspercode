@@ -1,5 +1,5 @@
 import { scaffoldContactMessage } from "@/lib/scaffold-contact-message";
-import { ContactMessage } from "@jaspercode/shared";
+import { ContactMessage } from "@jaspercode/schemas";
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 

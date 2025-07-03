@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { Job } from "@/data/jobs";
+import { Job } from "@/content/jobs";
 import { formatDate } from "@/lib/format-date";
 import { Check as CheckIcon } from "lucide-react";
 import Link from "next/link";
@@ -22,14 +22,14 @@ export function JobCard({ job }: JobCardProps) {
       passHref
     >
       <Card>
-        <p className="text-xs text-muted-foreground uppercase">
+        <p className="text-muted-foreground text-xs uppercase">
           {jobStartDate} — {jobEndDate}
         </p>
         <p>{`${job.position} · ${job.company.name}`}</p>
         <ul className="flex flex-col gap-2">
           {job.accomplishments.map((bullet) => (
             <li key={bullet}>
-              <div className="inline-flex items-start gap-2 text-sm text-muted-foreground">
+              <div className="text-muted-foreground inline-flex items-start gap-2 text-sm">
                 <CheckIcon size={14} className="mt-1 shrink-0" />
                 <span className="flex-1">{bullet}</span>
               </div>

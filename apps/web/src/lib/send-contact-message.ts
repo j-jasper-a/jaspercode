@@ -1,4 +1,4 @@
-import { ContactMessage } from "@jaspercode/shared";
+import { ContactMessage } from "@jaspercode/schemas";
 
 export async function sendContactEmail(payload: ContactMessage): Promise<void> {
   const response = await fetch("/api/contact", {

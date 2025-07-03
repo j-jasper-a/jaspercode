@@ -11,22 +11,22 @@ export type NavigationLink = z.infer<typeof navigationLinkSchema>;
 export const navigationLinks: NavigationLink[] = [
   {
     label: "Work",
-    href: "#work",
+    href: "/#work",
     disabled: false,
   },
   {
-    label: "Writing",
-    href: "/writing",
-    disabled: true,
+    label: "Blog",
+    href: "/blog",
+    disabled: false,
   },
   {
     label: "About",
-    href: "#about",
+    href: "/#about",
     disabled: false,
   },
   {
     label: "Contact",
-    href: "#contact",
+    href: "/#contact",
     disabled: false,
   },
 ];

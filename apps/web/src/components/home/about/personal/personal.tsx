@@ -1,6 +1,6 @@
-import { Highlight } from "./highlight";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
+import { Highlight } from "./highlight";
 
 export function Personal() {
   return (
@@ -15,7 +15,7 @@ export function Personal() {
         />
       </div>
       <div>
-        <p className="text-xl text-muted-foreground">
+        <p className="text-muted-foreground text-xl">
           Hey, there! I&apos;m a software engineer with more than{" "}
           <Highlight>4 years</Highlight> of <Highlight>full-stack</Highlight>{" "}
           industry experience. I specialize in crafting{" "}

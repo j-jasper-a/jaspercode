@@ -9,8 +9,14 @@ const nextConfig: NextConfig = {
         hostname: "placehold.co",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "picsum.photos",
+        pathname: "/**",
+      },
     ],
   },
+  serverExternalPackages: ["shiki"],
 };
 
 export default nextConfig;

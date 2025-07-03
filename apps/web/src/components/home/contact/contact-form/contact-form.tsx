@@ -1,15 +1,15 @@
 "use client";
 
-import { AppInput } from "./app-input";
-import { AppTextarea } from "./app-textarea";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { sendContactEmail } from "@/lib/send-contact-message";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ContactMessage, contactMessageSchema } from "@jaspercode/shared";
+import { ContactMessage, contactMessageSchema } from "@jaspercode/schemas";
 import { Send as SendMessageIcon } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { AppInput } from "./app-input";
+import { AppTextarea } from "./app-textarea";
 
 export function ContactForm() {
   const {
@@ -44,11 +44,11 @@ export function ContactForm() {
     <Card>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
         <AppInput label="Name" {...register("name")} />
-        <p className="text-xs text-destructive">{errors.name?.message}</p>
+        <p className="text-destructive text-xs">{errors.name?.message}</p>
         <AppInput label="Email" {...register("email")} />
-        <p className="text-xs text-destructive">{errors.email?.message}</p>
+        <p className="text-destructive text-xs">{errors.email?.message}</p>
         <AppTextarea label="Message" {...register("message")} />
-        <p className="text-xs text-destructive">{errors.message?.message}</p>
+        <p className="text-destructive text-xs">{errors.message?.message}</p>
         <Button type="submit" variant="default" size="default">
           {loading ? (
             <span className="animate-pulse">Sending message...</span>

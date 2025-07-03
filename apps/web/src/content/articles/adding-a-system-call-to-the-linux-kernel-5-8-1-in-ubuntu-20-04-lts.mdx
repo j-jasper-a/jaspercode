@@ -1,0 +1,358 @@
+---
+title: "[Archive] Adding a system call to the Linux kernel (5.8.1) in Ubuntu (20.04 LTS)"
+description: "Learn how to add a simple system call to the Linux kernel in Ubuntu 20.04 LTS. This guide covers preparation, creation, installation, and testing of the system call."
+tags: ["linux", "kernel", "system", "ubuntu"]
+date: "2020-08-12"
+---
+
+_This guide was originally published on Aug 12, 2020. I wrote it during my time as an undergraduate Computer Science & Engineering student. As part of a course assignment, we were asked to research how to add a system call to the Linux kernel. Unfortunately, despite extensive searching, we couldn't find any reliable or beginner-friendly resources. And at the time, AI tools weren't available to assist us._
+
+_Determined to solve the problem, I spent the weekend experimenting—setting up Linux virtual machines and exploring the kernel source until I successfully implemented a system call. I then documented the entire process and submitted the guide to my lecturer. He was impressed enough to adopt it as the official instructional material for the course._
+
+_Given the positive feedback, I later published the article on [Dev.to](https://dev.to/jasper/adding-a-system-call-to-the-linux-kernel-5-8-1-in-ubuntu-20-04-lts-2ga8), where it has since been read by over 57,000 students worldwide._
+
+---
+
+In this guide, you will learn how to add a simple system call to the Linux kernel. Check the help sections on the table of contents if you need help with text editors.
+
+- [Section 1 - Preparation](#section-1---preparation)
+- [Section 2 - Creation](#section-2---creation)
+- [Section 3 - Installation](#section-3---installation)
+- [Section 4 - Result](#section-4---result)
+- [Help - Text Editors](#help---text-editors)
+- [Help - `nano`](#help---basic-controls-for-nano)
+
+## Section 1 - Preparation
+
+_In this section, you will download all necessary tools to add a basic system call to the Linux kernel and run it. This is the only part of the entire process where network connectivity is necessary._
+
+### 1.1 - Fully update your operating system.
+
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
+### 1.2 - Download and install the essential packages to compile kernels.
+
+```bash
+sudo apt install build-essential libncurses-dev libssl-dev libelf-dev bison flex -y
+```
+
+If would rather use `vim` or any other text editor instead of `nano`, below is an example of how you install it.
+
+```bash
+sudo apt install vim -y
+```
+
+### 1.3 - Clean up your installed packages.
+
+```bash
+sudo apt clean && sudo apt autoremove -y
+```
+
+### 1.4 - Download the source code of the latest stable version of the Linux kernel (_which is 5.8.1 as of 12 August 2020_) to your home folder.
+
+```bash
+wget -P ~/ https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.8.1.tar.xz
+```
+
+If you have downloaded a newer version of the Linux kernel, refer to [this documentation](https://www.kernel.org/doc/html/latest/process/adding-syscalls.html) to learn about any relevant change made to system calls.
+
+### 1.5 - Unpack the tarball you just downloaded to your home folder.
+
+```bash
+tar -xvf ~/linux-5.8.1.tar.xz -C ~/
+```
+
+### 1.6 - Reboot your computer.
+
+## Section 2 - Creation
+
+_In this section, you will write a basic system call in C and integrate it into the new kernel._
+
+### 2.1 - Check the version of your current kernel.
+
+```bash
+uname -r
+```
+
+As of 12 August 2020, it should display the following.
+
+`5.4.0-42-generic`
+
+In section 4, it should be different.
+
+### 2.2 - Change your working directory to the root directory of the recently unpacked source code.
+
+```bash
+cd ~/linux-5.8.1/
+```
+
+### 2.3 - Create the home directory of your system call.
+
+Decide a name for your system call, and keep it consistent from this point onwards. I have chosen `identity`.
+
+```bash
+mkdir identity
+```
+
+### 2.4 - Create a C file for your system call.
+
+Create the C file with the following command.
+
+```bash
+nano identity/identity.c
+```
+
+Write the following code in it.
+
+```c
+#include <linux/kernel.h>
+#include <linux/syscalls.h>
+
+SYSCALL_DEFINE0(identity)
+
+{
+	printk("I am Jihan Jasper Al-rashid.\n");
+	return 0;
+}
+```
+
+You can write anything you like here.
+
+Save it and exit the text editor.
+
+### 2.5 - Create a Makefile for your system call.
+
+Create the Makefile with the following command.
+
+```bash
+nano identity/Makefile
+```
+
+Write the following code in it.
+
+```makefile
+obj-y := identity.o
+```
+
+Save it and exit the text editor.
+
+### 2.6 - Add the home directory of your system call to the main Makefile of the kernel.
+
+Open the Makefile with the following command.
+
+```bash
+nano Makefile
+```
+
+Search for `core-y`. In the second result, you will see a series of directories.
+
+`kernel/ certs/ mm/ fs/ ipc/ security/ crypto/ block/`
+
+In the fresh source code of Linux 5.8.1 kernel, it should be in line 1073.
+
+Add the home directory of your system call at the end like the following.
+
+```makefile
+kernel/ certs/ mm/ fs/ ipc/ security/ crypto/ block/ identity/
+```
+
+Save it and exit the editor.
+
+### 2.7 - Add a corresponding function prototype for your system call to the header file of system calls.
+
+Open the header file with the following command.
+
+```bash
+nano include/linux/syscalls.h
+```
+
+Navigate to the bottom of it and write the following code just above `#endif`.
+
+```c
+asmlinkage long sys_identity(void);
+```
+
+Save it and exit the editor.
+
+### 2.8 - Add your system call to the kernel's system call table.
+
+Open the table with the following command.
+
+```bash
+nano arch/x86/entry/syscalls/syscall_64.tbl
+```
+
+Navigate to the bottom of it. You will find a series of x32 system calls. Scroll to the section above it. This is the section of your interest. Add the following code at the end of this section respecting the chronology of the row as well as the format of the column. Use Tab for space.
+
+```tbl
+440     common  identity                sys_identity
+```
+
+In the fresh source code of Linux 5.8.1 kernel, the number for your system call should be 440.
+
+Save it and exit the editor.
+
+## Section 3 - Installation
+
+_In this section, you will install the new kernel and prepare your operating system to boot into it._
+
+### 3.1 - Configure the kernel.
+
+Make sure the window of your terminal is maximized.
+
+Open the configuration window with the following command.
+
+```bash
+make menuconfig
+```
+
+Use **Tab** to move between options. Make no changes to keep it in default settings.
+
+Save and exit.
+
+### 3.2 - Find out how many logical cores you have.
+
+```bash
+nproc
+```
+
+The following few commands require a long time to be executed. Parallel processing will greatly speed them up. For me, it is `12`. Therefore, I will put 12 after `-j` in the following commands.
+
+### 3.3 - Compile the kernel's source code.
+
+```bash
+make -j12
+```
+
+### 3.4 - Prepare the installer of the kernel.
+
+```bash
+sudo make modules_install -j12
+```
+
+### 3.5 - Install the kernel.
+
+```bash
+sudo make install -j12
+```
+
+### 3.6 - Update the bootloader of the operating system with the new kernel.
+
+```bash
+sudo update-grub
+```
+
+### 3.7 - Reboot your computer.
+
+## Section 4 - Result
+
+_In this section, you will write a C program to check whether your system call works or not. After that, you will see your system call in action._
+
+### 4.1 - Check the version of your current kernel.
+
+```bash
+uname -r
+```
+
+It should display the following.
+
+`5.8.1`
+
+### 4.2 - Change your working directory to your home directory.
+
+```bash
+cd ~
+```
+
+### 4.3 - Create a C file to generate a report of the success or failure of your system call.
+
+Create the C file with the following command.
+
+```bash
+nano report.c
+```
+
+Write the following code in it.
+
+```c
+#include <linux/kernel.h>
+#include <sys/syscall.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+#include <errno.h>
+
+#define __NR_identity 440
+
+long identity_syscall(void)
+{
+	return syscall(__NR_identity);
+}
+
+int main(int argc, char *argv[])
+{
+	long activity;
+	activity = identity_syscall();
+
+	if(activity < 0)
+	{
+		perror("Sorry, Jasper. Your system call appears to have failed.");
+	}
+
+	else
+	{
+		printf("Congratulations, Jasper! Your system call is functional. Run the command dmesg in the terminal and find out!\n");
+	}
+
+	return 0;
+}
+```
+
+You can customize the messages for failure and success anyhow you like.
+
+Save it and exit the editor.
+
+### 4.4 - Compile the C file you just created.
+
+```bash
+gcc -o report report.c
+```
+
+### 4.5 - Run the C file you just compiled.
+
+```bash
+./report
+```
+
+If it displays the following, everything is working as intended.
+
+`Congratulations, Jasper! Your system call is functional. Run the command dmesg in the terminal and find out!`
+
+### 4.6 - Check the last line of the `dmesg` output.
+
+```bash
+dmesg
+```
+
+At the bottom, you should now see the following.
+
+`I am Jihan Jasper Al-rashid.`
+
+### Congratulations! You have successfully added a system call to the Linux kernel!
+
+## Help - Text Editors
+
+This guide has frequent instances of text editing. You can use whatever gives you comfort. For the purpose of this guide, I have used `nano`. If you would rather use `vim` or any other text editor, simply replace `nano` with either `vim` or any other text editor in all of the commands. If you would rather use a GUI-based text editor, the process is the same. `gedit`, GNOME's default GUI-based text editor, comes bundled with Ubuntu 20.04 LTS.
+
+## Help - Basic Controls For `nano`
+
+| Control                      | Action                                                                                                                                                          |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>Ctrl</kbd>+<kbd>O</kbd> | Brings up the interface to save a document. Pressing **Enter** afterwards will complete the process.                                                            |
+| <kbd>Ctrl</kbd>+<kbd>W</kbd> | Brings up the interface to search for anything in a document. You can write anything in here and press **Enter** to jump to it. The result will be highlighted. |
+| <kbd>Alt</kbd>+<kbd>W</kbd>  | Takes you to the next instance, if there is one, after you searched anything once.                                                                              |
+| <kbd>Ctrl</kbd>+<kbd>C</kbd> | Cancels any interface.                                                                                                                                          |
+| <kbd>Alt</kbd>+<kbd>C</kbd>  | Turns on the display which shows you the line number based on the position of your cursor.                                                                      |
+| <kbd>Ctrl</kbd>+<kbd>X</kbd> | Exits the text editor.                                                                                                                                          |

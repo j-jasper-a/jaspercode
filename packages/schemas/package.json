@@ -1,0 +1,8 @@
+{
+  "name": "@jaspercode/schemas",
+  "version": "1.0.0",
+  "license": "ISC",
+  "author": "Jihan Jasper Al Rashid",
+  "main": "src/index.ts",
+  "packageManager": "pnpm@10.10.0"
+}

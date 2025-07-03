@@ -50,7 +50,7 @@
   --primary-foreground: hsl(212, 100%, 10%);
   --secondary: hsl(212, 25%, 25%);
   --secondary-foreground: oklch(0.985 0 0);
-  --muted: red;
+  --muted: hsl(212, 25%, 35%);
   --muted-foreground: hsl(0, 0%, 65%);
   --accent: hsl(39, 0%, 30%, 0.5);
   --accent-foreground: hsl(39, 100%, 85%);
@@ -113,13 +113,15 @@
   --font-backup: var(--font-backup);
   --font-special: var(--font-special);
   --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
-    @apply bg-background font-sans font-medium text-foreground;
+    @apply bg-background text-foreground font-sans;
   }
 }

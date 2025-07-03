@@ -8,7 +8,7 @@ export function NavLink({ href, label, disabled }: NavLinkType) {
       <Link
         href={disabled ? "#" : href}
         className={cn(
-          "text-sm transition-all duration-300 hover:text-accent-foreground",
+          "hover:text-accent-foreground text-sm transition-all duration-300",
           disabled && "pointer-events-none opacity-50",
         )}
       >
