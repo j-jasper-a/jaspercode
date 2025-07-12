@@ -6,6 +6,7 @@ import {
   MDXRemoteOptions,
 } from "next-mdx-remote-client/rsc";
 import Link from "next/link";
+import convertToText from "react-to-text";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import { BundledTheme } from "shiki";
@@ -44,7 +45,7 @@ export const mdxComponents: MDXComponents = {
   pre: ({ children }) => (
     <pre className="bg-foreground/5 prose-code:bg-transparent prose-code:p-0 relative whitespace-pre-wrap rounded-2xl p-4 font-mono lg:p-8">
       {children}
-      <CopyCodeButton children={children} />
+      <CopyCodeButton text={convertToText(children)} />
     </pre>
   ),
   a: ({ children, href }) => (

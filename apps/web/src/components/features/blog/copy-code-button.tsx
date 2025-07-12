@@ -2,33 +2,12 @@
 
 import { cn } from "@/lib/utils";
 import { CopyIcon } from "lucide-react";
-import { ReactNode, useState } from "react";
+import { useState } from "react";
 
-type CopyCodeButtonProps = {
-  children?: ReactNode;
-};
-
-function extractTextContent(children: any): string {
-  if (typeof children === "string" || typeof children === "number") {
-    return String(children);
-  }
-
-  if (Array.isArray(children)) {
-    return children.map(extractTextContent).join("");
-  }
-
-  if (children && typeof children === "object" && children.props) {
-    return extractTextContent(children.props.children);
-  }
-
-  return "";
-}
-
-export function CopyCodeButton({ children }: CopyCodeButtonProps) {
+export function CopyCodeButton({ text }: { text: string }) {
   const [isCopied, setIsCopied] = useState(false);
 
   const handleCopy = async () => {
-    const text = extractTextContent(children);
     try {
       await navigator.clipboard.writeText(text);
       setIsCopied(true);
